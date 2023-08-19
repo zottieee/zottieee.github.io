@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
-  /* Style for the login section */
+  /* Styles for the login section */
   body {
     font-family: Arial, sans-serif;
     display: flex;
@@ -24,14 +24,14 @@
 
   .header-title {
     font-size: 28px;
-    color: rgb(241, 240, 240);
+    color: rgb(8, 6, 6);
     margin-bottom: 5px;
   }
 
   .header-separator {
     width: 100%;
     height: 5px;
-    background-color: #fdfafa;
+    background-color: #000000;
     position: absolute;
     top: 80px;
     left: 0;
@@ -51,7 +51,7 @@
   body {
     margin: 0;
     overflow: hidden;
-    background: url('https://wallpaperaccess.com/full/4995541.png') no-repeat center center fixed;
+    background: url('https://wallpaperaccess.com/full/5098212.png') no-repeat center center fixed;
     background-size: cover;
   }
 
@@ -82,12 +82,8 @@
   }
 
   .content {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(223, 218, 218, 0.3);
     text-align: center;
-    margin-top: -140px;
+    margin-top: -150px;
   }
 
   .message {
@@ -130,6 +126,33 @@
     color: white;
     font-size: 24px;
   }
+
+  /* Additional Styles for the image grid */
+  .image-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+
+  .image-item {
+    text-align: center;
+    margin: 20px;
+    flex: 1;
+    max-width: 200px;
+  }
+
+  .image-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  }
+
+  .image-text {
+    font-size: 18px;
+    margin-top: 10px;
+  }
 </style>
 <title>ZottieChan</title>
 </head>
@@ -151,7 +174,25 @@
   <!-- New Page Section -->
   <div class="container" id="newPage">
     <div class="content">
-      <p class="message">Tunggu Ya Lagi DiPerbaiki.</p>
+      <h2>Technology</h2>
+      <div class="image-grid">
+        <div class="image-item">
+          <img src="https://www.freepnglogos.com/uploads/javascript-png/javascript-vector-logo-yellow-png-transparent-javascript-vector-12.png" alt="Gambar 1">
+          <p class="image-text">Java Script</p>
+        </div>
+        <div class="image-item">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7qbRkHdoLYfLuPeU2SLSYJ1BMdqocgnDJu2kfvWIraPgzvgV1&s" alt="Gambar 2">
+          <p class="image-text">HTML</p>
+        </div>
+        <div class="image-item">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJ-ml9PNfkDRFpDa-dQNzazBKHV0HZFEAQt_xqqq4KIonZ0_A1&s" alt="Gambar 3">
+          <p class="image-text">CSS</p>
+        </div>
+        <div class="image-item">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFIGMYHknmm2rSUdx62xQTLCPRAoTWVEA4-xzuQGoOec54F2w&s" alt="Gambar 4">
+          <p class="image-text">PHP</p>
+        </div>
+      </div>
       <a href="index.html" class="link-button" onclick="showLoginPage()">Kembali</a>
     </div>
   </div>
