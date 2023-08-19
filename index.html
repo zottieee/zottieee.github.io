@@ -8,11 +8,34 @@
   body {
     font-family: Arial, sans-serif;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
     min-height: 100vh;
     margin: 0;
     background-color: #f0f0f0;
+  }
+
+  .header {
+    text-align: center;
+    width: 100%;
+    padding: 20px 0;
+    background-color: #030101;
+    position: relative;
+  }
+
+  .header-title {
+    font-size: 28px;
+    color: white;
+    margin-bottom: 10px;
+  }
+
+  .header-separator {
+    width: 100%;
+    height: 5px;
+    background-color: #fff;
+    position: absolute;
+    top: 80px;
+    left: 0;
   }
 
   .auth-container {
@@ -22,13 +45,14 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     width: 300px;
     text-align: center;
+    margin-top: -140px; /* Diubah dari 30px */
   }
 
   /* Style for the background image */
   body {
     margin: 0;
     overflow: hidden;
-    background: url('https://wallpaperaccess.com/full/9111375.png') no-repeat center center fixed;
+    background: url('https://img.freepik.com/free-photo/cosmic-background-with-colorful-laser-lights-perfect-digital-wallpaper_181624-32741.jpg?size=626&ext=jpg&ga=GA1.2.1954518720.1692454209&semt=ais') no-repeat center center fixed;
     background-size: cover;
   }
 
@@ -41,8 +65,8 @@
     border-radius: 40px;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.3s;
-    font-size: 16px; /* Ukuran font disamakan */
-    width: 60%; /* Lebar tombol disamakan */
+    font-size: 16px;
+    width: 60%;
   }
 
   .tekan-ketuk-button:hover {
@@ -52,7 +76,7 @@
 
   /* Styles for the new page */
   .container {
-    display: none;
+    display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
@@ -62,8 +86,9 @@
     background-color: #fff;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 10px rgba(223, 218, 218, 0.3);
     text-align: center;
+    margin-top: -140px;
   }
 
   .message {
@@ -76,12 +101,12 @@
     color: #fff;
     text-decoration: none;
     padding: 10px 20px;
-    border-radius: 50px; /* Mengubah ke 50px untuk membuatnya oval */
+    border-radius: 50px;
     transition: background-color 0.3s;
-    display: inline-block; /* Menambahkan display inline-block */
-    margin-top: 10px; /* Menambahkan jarak atas */
-    font-size: 16px; /* Ukuran font disamakan */
-    width: 40%; /* Lebar tombol disamakan */
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 16px;
+    width: 40%;
   }
 
   .link-button:hover {
@@ -110,10 +135,18 @@
 <title>ZottieChan</title>
 </head>
 <body>
+  <!-- Header Section -->
+  <div class="header">
+    <div class="header-title">Welcome To ZottieChan:3</div>
+    <div class="header-separator"></div>
+  </div>
+
   <!-- Tekan Ketuk Section -->
-  <div class="auth-container" id="authContainer">
-    <h2>Tekan Tombol Masuk DiBawah!</h2>
-    <button class="tekan-ketuk-button" onclick="showNewPage()">masuk</button>
+  <div class="container" id="authContainer">
+    <div class="auth-container">
+      <h2>Tekan Tombol Masuk DiBawah!</h2>
+      <button class="tekan-ketuk-button" onclick="showNewPage()">masuk</button>
+    </div>
   </div>
 
   <!-- New Page Section -->
