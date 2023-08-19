@@ -101,7 +101,7 @@
     text-decoration: none;
     padding: 10px 20px;
     border-radius: 50px;
-    transition: background-color 0.3s;
+    transition: background-color 0.5s;
     display: inline-block;
     margin-top: 10px;
     font-size: 16px;
@@ -192,5 +192,29 @@
       }, 3000); // Simulasi loading selama 2 detik
     }
   </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Desktop Only Page</title>
+    <style>
+        /* Ganti display:none saat diakses melalui perangkat seluler */
+        .desktop-only {
+            display: block; /* Tampilkan di desktop */
+        }
+
+        @media (max-width: 768px) {
+            .desktop-only {
+                display: none; /* Sembunyikan di perangkat seluler */
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Selamat datang di halaman hanya untuk dekstop!</h1>
+    <p class="desktop-only">Ini adalah konten yang hanya akan ditampilkan di komputer atau dekstop.</p>
+    <p>Ini adalah konten yang akan ditampilkan di semua perangkat.</p>
 </body>
 </html>
