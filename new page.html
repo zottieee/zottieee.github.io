@@ -117,7 +117,7 @@
             margin-left: auto;
             margin-right: auto;
             cursor: pointer;
-            transition: background-color 0.3s, border-color 0.3s, transform 0.3s; /* Transisi latar belakang, border, dan transform */
+            transition: background-color 0.3s, border-color 0.3s, transform 0.3s, color 0.3s; /* Transisi latar belakang, border, transform, dan color */
         }
 
         .new-button:hover {
@@ -150,6 +150,61 @@
             margin-top: 200px; /* Sesuaikan dengan jumlah piksel yang diinginkan */
             font-weight: bold; /* Menambahkan tebal pada font */
         }
+
+        /* Gaya elemen panah */
+.arrow {
+    position: absolute;
+    bottom: 5px; /* Sesuaikan jarak dari bawah objek mata */
+    left: 50%; /* Sesuaikan posisi horizontal ke tengah objek mata */
+    transform: translateX(-50%); /* Atur agar elemen panah berada di tengah horizontal objek mata */
+    font-size: 16px; /* Sesuaikan ukuran font */
+    z-index: 6; /* Agar elemen panah di atas objek mata lain */
+}
+
+
+        /* Gaya untuk kontainer tombol-tombol */
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        /* Gaya tombol tambahan */
+        .additional-button {
+            font-weight: bold;
+            background-color: transparent; /* Latar belakang transparan */
+            border: 2px solid #0056b3; /* Border dengan ketebalan 2px dan warna biru (#0056b3) */
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin: 0 20px; /* Margin agar ada jarak antara tombol-tombol */
+            cursor: pointer;
+            transition: background-color 0.3s, border-color 0.3s, transform 0.3s, opacity 0.3s, color 0.3s; /* Transisi latar belakang, border, transform, opacity, dan color */
+            opacity: 0; /* Awalnya tombol-tombol tidak terlihat */
+            margin-top: 25px;
+            color: #0056b3; /* Warna teks */
+        }
+
+        .additional-button:hover {
+            background-color: #0056b3; /* Warna latar belakang saat dihover */
+            color: #fff; /* Warna teks saat dihover */
+            border-color: #0056b3; /* Warna border saat dihover */
+            transform: scale(1.1); /* Mengubah skala tombol saat dihover (lebih besar) */
+        }
+
+        /* Gaya tombol tambahan muncul */
+        .additional-button.active {
+            opacity: 1; /* Munculkan tombol-tombol dengan opacity penuh */
+        }
+
+        /* Gaya garis */
+        .line {
+            border: none;
+            border-top: 2px solid #0056b3; /* Warna garis sesuaikan dengan keinginan Anda */
+            width: 100px; /* Lebar garis */
+            position: absolute;
+            top: 60px; /* Atur jarak dari atas */
+            left: 50%; /* Atur jarak dari kiri */
+            transform: translateX(-50%); /* Agar garis berada di tengah horizontal */
+        }
     </style>
     <title>ZotieChan</title>
 </head>
@@ -164,19 +219,32 @@
         </button>
         <!-- Judul di dalam halaman -->
         <h1>ZottieChan!</h1>
+    
+            <div class="arrow">&#9660;</div>
+        </div>
     </header>
     
     <!-- Tambahkan kata-kata besar di tengah halaman -->
-<div class="large-text">
-    <div>FullStuck Person Who Will</div>
-    <div>Help You <span class="realize" style="color: blue;">Realize</span> Your Idea</div>
-</div>
-<div class="newtext">
-    <div>Enthusiastic about Software Engineering</div>
-    <div>Interest in Frontend Development, UI/UX Design, and Collaboration 😄</div>
-</div>
+    <div class="large-text">
+        <div>FullStuck Person Who Will</div>
+        <div>Help You <span class="realize" style="color: blue;">Realize</span> Your Idea</div>
+    </div>
+    <div class="newtext">
+        <div>Enthusiastic about Software Engineering</div>
+        <div>Interest in Frontend Development, UI/UX Design, and Collaboration 😄</div>
+    </div>
 
-<button class="new-button">Let's Collaborate With Me</button>
+    <button class="new-button" id="show-buttons">Let's Collaborate With Me</button>
+
+    <!-- Tambahkan garis -->
+    <hr class="line">
+
+    <!-- Kontainer untuk tombol-tombol tambahan -->
+    <div class="button-container">
+        <button class="additional-button">SOON</button>
+        <a href="https://discord.gg/ueX2nUhUng" target="_blank" class="additional-button">Discord</a>
+        <button class="additional-button">SOON</button>
+    </div>
 
     <!-- Tambahkan lebih banyak div dengan class "container" jika diperlukan -->
 
@@ -186,6 +254,16 @@
         // Ambil tombol "Mode Gelap/Terang" dan tambahkan event listener untuk mengganti mode saat ditekan
         const darkModeButton = document.getElementById("dark-mode-button");
         darkModeButton.addEventListener("click", toggleDarkMode);
+
+        // Ambil tombol "Let's Collaborate With Me" dan tambahkan event listener untuk menampilkan dan menyembunyikan tombol tambahan saat ditekan
+        const showButtonsButton = document.getElementById("show-buttons");
+        showButtonsButton.addEventListener("click", toggleAdditionalButtons);
+
+        // Fungsi untuk menampilkan dan menyembunyikan tombol-tombol tambahan
+        function toggleAdditionalButtons() {
+            const additionalButtons = document.querySelectorAll(".additional-button");
+            additionalButtons.forEach(button => button.classList.toggle("active"));
+        }
 
         // Fungsi untuk mengganti mode gelap/terang
         function toggleDarkMode() {
@@ -200,11 +278,19 @@
                 // Jika mode gelap aktif, tampilkan logo matahari
                 document.querySelector(".moon-icon").style.display = "none";
                 document.querySelector(".sun-icon").style.display = "block";
+                // Ganti warna teks tombol-tombol tambahan menjadi putih
+                const additionalButtons = document.querySelectorAll(".additional-button");
+                additionalButtons.forEach(button => button.style.color = "#fff");
             } else {
                 // Jika mode terang aktif, tampilkan logo bulan
                 document.querySelector(".moon-icon").style.display = "block";
                 document.querySelector(".sun-icon").style.display = "none";
+                // Ganti warna teks tombol-tombol tambahan menjadi hitam
+                const additionalButtons = document.querySelectorAll(".additional-button");
+                additionalButtons.forEach(button => button.style.color = "#0056b3");
             }
+
+             
         }
     </script>
 </body>
