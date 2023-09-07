@@ -1,281 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-  /* Styles for the login section */
-  body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100vh;
-    margin: 0; 
-    background-color: #f0f0f0;
-  }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000; /* Warna latar belakang hitam */
+            overflow: hidden; /* Menyembunyikan scroll jika ada */
+        }
 
-  .header {
-    text-align: center;
-    width: 100%;
-    padding: 20px 0;
-    position: relative;
-  }
+        /* Gaya teks */
+        .welcome-text {
+            font-size: 50px; /* Ukuran font */
+            color: #fff; /* Warna teks putih */
+            text-align: center; /* Tengah teks secara horizontal */
+            position: absolute; /* Menggunakan posisi absolut untuk pengaturan tepat */
+            top: 50%; /* Atur ke tengah vertikal */
+            left: 50%; /* Atur ke tengah horizontal */
+            transform: translate(-50%, -50%); /* Pusatkan elemen */
+            animation: fadeOut 1s linear 1.4s forwards; /* Animasi fade out setelah 2 detik */
+        }
 
-  .header-title {
-    font-size: 28px;
-    color: rgb(8, 6, 6);
-    margin-bottom: 5px;
-  }
+        /* Warna teks ZottieChan! menjadi biru */
+        .welcome-text span {
+            color: blue;
+        }
 
-  .header-separator {
-    width: 100%;
-    height: 5px;
-    background-color: #000000;
-    position: absolute;
-    top: 80px;
-    left: 0;
-  }
+        /* Animasi fade out */
+        @keyframes fadeOut {
+            0% {
+                opacity: 1; /* Kejelasan awal (teks terlihat) */
+            }
+            100% {
+                opacity: 0; /* Kejelasan akhir (teks menghilang) */
+            }
+        }
 
-  .auth-container {
-    background-color: #fff;
-    border-radius: 5px;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    width: 300px;
-    text-align: center;
-    margin-top: -140px; /* Diubah dari 30px */
-  }
+        /* Gaya teks tambahan */
+        .additional-text {
+            font-size: 30px; /* Ukuran font */
+            color: #fff; /* Warna teks putih */
+            text-align: center; /* Tengah teks secara horizontal */
+            position: absolute; /* Menggunakan posisi absolut untuk pengaturan tepat */
+            top: 50%; /* Atur ke tengah vertikal */
+            left: 50%; /* Atur ke tengah horizontal */
+            transform: translate(-50%, -50%); /* Pusatkan elemen */
+            opacity: 0; /* Kejelasan awal (teks tidak terlihat) */
+            animation: fadeIn 1s linear 3s forwards, fadeOut 1s linear 5s forwards; /* Animasi fade in setelah 3 detik dan fade out setelah 5 detik */
+        }
 
-  /* Style for the background image */
-  body {
-    margin: 0;
-    overflow: hidden;
-    background: url('https://wallpaperaccess.com/full/5098212.png') no-repeat center center fixed;
-    background-size: cover;
-  }
+        /* Animasi fade in */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0; /* Kejelasan awal (teks tidak terlihat) */
+            }
+            100% {
+                opacity: 1; /* Kejelasan akhir (teks terlihat) */
+            }
+        }
 
-  /* Style for the Tekan Ketuk button */
-  .tekan-ketuk-button {
-    background-color: #007bff;
-    color: #fff; 
-    border: none;
-    padding: 10px 20px;
-    border-radius: 40px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
-    font-size: 16px;
-    width: 60%;
-  }
+        /* Gaya teks "Skill" */
+        .skill-text {
+            font-size: 30px; /* Ukuran font */
+            color: #fff; /* Warna teks putih */
+            text-align: center; /* Tengah teks secara horizontal */
+            position: absolute; /* Menggunakan posisi absolut untuk pengaturan tepat */
+            top: 35%; /* Atur ke tengah vertikal */
+            left: 50%; /* Atur ke tengah horizontal */
+            transform: translateX(-50%); /* Pusatkan elemen */
+            opacity: 0; /* Kejelasan awal (teks tidak terlihat) */
+            animation: fadeIn 1s linear 6s forwards, fadeOut 1s linear 8s forwards; /* Animasi fade in setelah 6 detik dan fade out setelah 8 detik */
+        }
 
-  .tekan-ketuk-button:hover {
-    background-color: #0056b3;
-    transform: scale(1.1);
-  }
+        /* Gaya gambar-gambar */
+        .skill-images {
+            text-align: center; /* Tengah teks secara horizontal */
+            position: absolute; /* Menggunakan posisi absolut untuk pengaturan tepat */
+            top: 50%; /* Atur ke tengah vertikal */
+            left: 50%; /* Atur ke tengah horizontal */
+            transform: translateX(-50%); /* Pusatkan elemen */
+            opacity: 0; /* Kejelasan awal (gambar tidak terlihat) */
+            animation: fadeIn 1s linear 6s forwards, fadeOut 1s linear 8s forwards; /* Animasi fade in setelah 6 detik dan fade out setelah 8 detik */
+        }
 
-  /* Styles for the new page */
-  .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-
-  .content {
-    text-align: center;
-    margin-top: -150px;
-  }
-
-  .message {
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
-
-  .link-button {
-    background-color: #007bff;
-    color: #fff;
-    text-decoration: none;
-    padding: 10px 20px;
-    border-radius: 50px;
-    transition: background-color 0.5s;
-    display: inline-block;
-    margin-top: 10px;
-    font-size: 16px;
-    width: 20%;
-  }
-
-  .link-button:hover {
-    background-color: #0056b3;
-  }
-
-  /* Additional Styles for the image grid */
-  .image-grid {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 20px;
-  }
-
-  .image-item {
-    text-align: center;
-    margin: 20px;
-    flex: 1;
-    max-width: 200px;
-  }
-
-  .image-item img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 5px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-  }
-
-  .image-text {
-    font-size: 18px;
-    margin-top: 10px;
-  }
-  
-  /* Styles for the loading overlay */
-  .loading-overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 9999;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .spinner {
-    width: 56px;
-    height: 56px;
-    display: grid;
-    border: 4.5px solid #0000;
-    border-radius: 50%;
-    border-color: #000000 #0000;
-    animation: spinner-e04l1k 1s infinite linear;
-  }
-  
-  .spinner::before,
-  .spinner::after {
-    content: "";
-    grid-area: 1/1;
-    margin: 2.2px;
-    border: inherit;
-    border-radius: 50%;
-  }
-  
-  .spinner::before {
-    border-color: #000000 #0000;
-    animation: inherit;
-    animation-duration: 0.5s;
-    animation-direction: reverse;
-  }
-  
-  .spinner::after {
-    margin: 8.9px;
-  }
-  
-  @keyframes spinner-e04l1k {
-    100% {
-      transform: rotate(1turn);
-    }
-  }
-</style>
-<title>ZottieChan</title>
+        /* Menambahkan jarak antara gambar-gambar */
+        .skill-images img {
+            margin: 0 10px; /* Margin horizontal 10px */
+            width: 100px; /* Ukuran gambar */
+            height: 100px; /* Ukuran gambar */
+        }
+    </style>
+    <title>ZottieChan</title>
 </head>
 <body>
-  <!-- Header Section -->
-  <div class="header">
-    <div class="header-title">Welcome To ZottieChan:3</div>
-    <div class="header-separator"></div>
-  </div>
+    <!-- Teks yang akan dianimasikan -->
+    <div class="welcome-text">Welcome To <span>Zottie<span>Chan!</div>
+    
+    <!-- Teks tambahan yang akan muncul setelah 1 detik -->
+    <div class="additional-text">Hello Perkenalkan Nama Saya ZottieChan! Dan Saya Adalah Seorang Developer Yang Mungkin Bisa Membantu Mengembangkan Ide Kamu😊</div>
 
-  <!-- Tekan Ketuk Section -->
-  <div class="container" id="authContainer">
-    <div class="auth-container">
-      <h2>Tekan Tombol Masuk DiBawah!</h2>
-      <button class="tekan-ketuk-button" onclick="showNewPage()">masuk</button>
+    <!-- Teks "Skill" -->
+    <div class="skill-text">Skill</div>
+    
+    <!-- Gambar-gambar skill -->
+    <div class="skill-images">
+        <img src="https://www.freepnglogos.com/uploads/javascript-png/javascript-vector-logo-yellow-png-transparent-javascript-vector-12.png" alt="JavaScript">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7qbRkHdoLYfLuPeU2SLSYJ1BMdqocgnDJu2kfvWIraPgzvgV1&s" alt="HTML">
+        <img src="https://cdn4.iconfinder.com/data/icons/logos-and-brands/512/181_Java_logo_logos-512.png" alt="Java">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFIGMYHknmm2rSUdx62xQTLCPRAoTWVEA4-xzuQGoOec54F2w&s" alt="PHP">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJ-ml9PNfkDRFpDa-dQNzazBKHV0HZFEAQt_xqqq4KIonZ0_A1&s" alt="CSS">
     </div>
-  </div>
 
-  <!-- New Page Section -->
-  <div class="container" id="newPage">
-    <div class="content">
-      <h2>Technology</h2>
-      <div class="image-grid">
-        <div class="image-item">
-          <img src="https://www.freepnglogos.com/uploads/javascript-png/javascript-vector-logo-yellow-png-transparent-javascript-vector-12.png" alt="Gambar 1">
-          <p class="image-text">Java Script</p>
-        </div>
-        <div class="image-item">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7qbRkHdoLYfLuPeU2SLSYJ1BMdqocgnDJu2kfvWIraPgzvgV1&s" alt="Gambar 2">
-          <p class="image-text">HTML</p>
-        </div>
-        <div class="image-item">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJ-ml9PNfkDRFpDa-dQNzazBKHV0HZFEAQt_xqqq4KIonZ0_A1&s" alt="Gambar 3">
-          <p class="image-text">CSS</p>
-        </div>
-        <div class="image-item">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFIGMYHknmm2rSUdx62xQTLCPRAoTWVEA4-xzuQGoOec54F2w&s" alt="Gambar 4">
-          <p class="image-text">PHP</p>
-        </div>
-      </div>
-      <a href="index.html" class="link-button" onclick="showLoginPage()">Kembali</a>
-      <a href="new page.html" class="link-button" id="newPageButton" onclick="showNewPageWithLoading()">Lanjut</a>
-    </div>
-  </div>
-  
-  <!-- Loading Overlay -->
-  <div class="loading-overlay" id="loadingOverlay">
-    <div class="spinner"></div>
-  </div>
+    <!-- Script JavaScript untuk mengarahkan ke halaman lain setelah teks "Skill" hilang -->
+<script>
+    // Mengambil elemen "Skill" untuk mengawasi akhir animasi
+    var skillText = document.querySelector(".skill-text");
 
-  <script>
-    async function showLoading() {
-      document.querySelector('.loading-overlay').style.display = 'flex';
-      await new Promise(resolve => setTimeout(resolve, 1000)); // Menunggu 5 detik
-      hideLoading();
-    }
+    // Menambahkan event listener untuk mengawasi akhir animasi "Skill"
+    skillText.addEventListener("animationend", function () {
+        // Setelah animasi "Skill" selesai, tunggu 1 detik sebelum mengarahkan ke halaman berikutnya
+        setTimeout(function () {
+            // Arahkan ke halaman berikutnya (Anda dapat menggantinya dengan URL yang sesuai)
+            window.location.href = "newpage.html";
+        }, 2000); // Tunggu 1 detik sebelum mengarahkan ke halaman berikutnya
+    });
+</script>
 
-    function hideLoading() {
-      document.querySelector('.loading-overlay').style.display = 'none';
-    }
-
-    function showNewPage() {
-      var authContainer = document.getElementById('authContainer');
-      var loadingOverlay = document.getElementById('loadingOverlay');
-      var newPageButton = document.getElementById('newPageButton');
-      showLoading().then(() => {
-        authContainer.style.display = 'none';
-        var newPage = document.getElementById('newPage');
-        newPage.style.display = 'flex';
-        newPageButton.style.pointerEvents = 'auto'; // Mengaktifkan kembali tombol "Lanjut"
-      });
-    }
-
-    async function showNewPageWithLoading() {
-      var authContainer = document.getElementById('authContainer');
-      var newPageButton = document.getElementById('newPageButton');
-      newPageButton.style.pointerEvents = 'none'; // Menonaktifkan tombol "Lanjut" selama loading
-      await showLoading();
-      authContainer.style.display = 'none';
-      var newPage = document.getElementById('newPage');
-      newPage.style.display = 'flex';
-    }
-
-    function showLoginPage() {
-      var authContainer = document.getElementById('authContainer');
-      var loadingOverlay = document.getElementById('loadingOverlay');
-      showLoading().then(() => {
-        authContainer.style.display = 'flex';
-        var newPage = document.getElementById('newPage');
-        newPage.style.display = 'none';
-      });
-    }
-  </script>
 </body>
 </html>
