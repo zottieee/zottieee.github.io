@@ -152,15 +152,14 @@
         }
 
         /* Gaya elemen panah */
-.arrow {
-    position: absolute;
-    bottom: 5px; /* Sesuaikan jarak dari bawah objek mata */
-    left: 50%; /* Sesuaikan posisi horizontal ke tengah objek mata */
-    transform: translateX(-50%); /* Atur agar elemen panah berada di tengah horizontal objek mata */
-    font-size: 16px; /* Sesuaikan ukuran font */
-    z-index: 6; /* Agar elemen panah di atas objek mata lain */
-}
-
+        .arrow {
+            position: absolute;
+            bottom: 5px; /* Sesuaikan jarak dari bawah objek mata */
+            left: 50%; /* Sesuaikan posisi horizontal ke tengah objek mata */
+            transform: translateX(-50%); /* Atur agar elemen panah berada di tengah horizontal objek mata */
+            font-size: 16px; /* Sesuaikan ukuran font */
+            z-index: 6; /* Agar elemen panah di atas objek mata lain */
+        }
 
         /* Gaya untuk kontainer tombol-tombol */
         .button-container {
@@ -219,19 +218,18 @@
         </button>
         <!-- Judul di dalam halaman -->
         <h1>ZottieChan!</h1>
-    
-            <div class="arrow">&#9660;</div>
-        </div>
+
+        <div class="arrow">&#9660;</div>
     </header>
-    
+
     <!-- Tambahkan kata-kata besar di tengah halaman -->
     <div class="large-text">
-        <div>FullStuck Person Who Will</div>
+        <div>FullStack Person Who Will</div>
         <div>Help You <span class="realize" style="color: blue;">Realize</span> Your Idea</div>
     </div>
     <div class="newtext">
         <div>Enthusiastic about Software Engineering</div>
-        <div>Interest in Frontend Development, UI/UX Design, and Collaboration 😄</div>
+        <div>Interested in Frontend Development, UI/UX Design, and Collaboration 😄</div>
     </div>
 
     <button class="new-button" id="show-buttons">Let's Collaborate With Me</button>
@@ -289,8 +287,6 @@
                 const additionalButtons = document.querySelectorAll(".additional-button");
                 additionalButtons.forEach(button => button.style.color = "#0056b3");
             }
-
-             
         }
     </script>
 </body>
