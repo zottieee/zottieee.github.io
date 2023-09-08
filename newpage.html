@@ -66,6 +66,25 @@
             background-color: #0056b3;
         }
 
+        /* Gaya tombol "ME" */
+        .me-button {
+            background-color: #f3f3f3;
+            color: #0e0a0a;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            position: absolute;
+            top: 50%; /* Atur jarak dari atas ke tengah */
+            left: 81%; /* Atur jarak dari kiri ke tengah */
+            transform: translate(-50%, -50%); /* Untuk mengaturnya tepat di tengah header */
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .me-button:hover {
+            background-color: #0056b3;
+        }
+
         .newtext {
             text-align: center; /* Untuk mengatur teks ke tengah secara horizontal */
             margin-top: 15px; /* Untuk memberi jarak dari atas */
@@ -211,6 +230,8 @@
     <header>
         <!-- Tombol "Project" di tengah header di garis atas -->
         <button class="project-button">SOON</button>
+        <!-- Tombol "ME" dengan tautan ke halaman baru -->
+        <a href="aboutme.html" class="me-button">ME</a>
         <!-- Tombol "Mode Gelap/Terang" -->
         <button id="dark-mode-button" class="dark-mode-button">
             <span class="moon-icon">☀️</span>
