@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000; /* Warna latar belakang hitam */
+            overflow: hidden; /* Menyembunyikan scroll jika ada */
+        }
+
+        /* Gaya teks */
+        .welcome-text {
+            font-size: 50px; /* Ukuran font */
+            color: #fff; /* Warna teks putih */
+            text-align: center; /* Tengah teks secara horizontal */
+            position: absolute; /* Menggunakan posisi absolut untuk pengaturan tepat */
+            top: 50%; /* Atur ke tengah vertikal */
+            left: 50%; /* Atur ke tengah horizontal */
+            transform: translate(-50%, -50%); /* Pusatkan elemen */
+            animation: fadeOut 1s linear 1.4s forwards; /* Animasi fade out setelah 2 detik */
+        }
+
+        /* Warna teks ZottieChan! menjadi biru */
+        .welcome-text span {
+            color: blue;
+        }
+
+        /* Animasi fade out */
+        @keyframes fadeOut {
+            0% {
+                opacity: 1; /* Kejelasan awal (teks terlihat) */
+            }
+            100% {
+                opacity: 0; /* Kejelasan akhir (teks menghilang) */
+            }
+        }
+
+        /* Gaya teks tambahan */
+        .additional-text {
+            font-size: 30px; /* Ukuran font */
+            color: #fff; /* Warna teks putih */
+            text-align: center; /* Tengah teks secara horizontal */
+            position: absolute; /* Menggunakan posisi absolut untuk pengaturan tepat */
+            top: 50%; /* Atur ke tengah vertikal */
+            left: 50%; /* Atur ke tengah horizontal */
+            transform: translate(-50%, -50%); /* Pusatkan elemen */
+            opacity: 0; /* Kejelasan awal (teks tidak terlihat) */
+            animation: fadeIn 1s linear 3s forwards, fadeOut 1s linear 5s forwards; /* Animasi fade in setelah 3 detik dan fade out setelah 5 detik */
+        }
+
+        /* Animasi fade in */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0; /* Kejelasan awal (teks tidak terlihat) */
+            }
+            100% {
+                opacity: 1; /* Kejelasan akhir (teks terlihat) */
+            }
+        }
+
+        /* Gaya teks "Skill" */
+        .skill-text {
+            font-size: 30px; /* Ukuran font */
+            color: #fff; /* Warna teks putih */
+            text-align: center; /* Tengah teks secara horizontal */
+            position: absolute; /* Menggunakan posisi absolut untuk pengaturan tepat */
+            top: 35%; /* Atur ke tengah vertikal */
+            left: 50%; /* Atur ke tengah horizontal */
+            transform: translateX(-50%); /* Pusatkan elemen */
+            opacity: 0; /* Kejelasan awal (teks tidak terlihat) */
+            animation: fadeIn 1s linear 6s forwards, fadeOut 1s linear 8s forwards; /* Animasi fade in setelah 6 detik dan fade out setelah 8 detik */
+        }
+
+        /* Gaya gambar-gambar */
+        .skill-images {
+            text-align: center; /* Tengah teks secara horizontal */
+            position: absolute; /* Menggunakan posisi absolut untuk pengaturan tepat */
+            top: 50%; /* Atur ke tengah vertikal */
+            left: 50%; /* Atur ke tengah horizontal */
+            transform: translateX(-50%); /* Pusatkan elemen */
+            opacity: 0; /* Kejelasan awal (gambar tidak terlihat) */
+            animation: fadeIn 1s linear 6s forwards, fadeOut 1s linear 8s forwards; /* Animasi fade in setelah 6 detik dan fade out setelah 8 detik */
+        }
+
+        /* Menambahkan jarak antara gambar-gambar */
+        .skill-images img {
+            margin: 0 10px; /* Margin horizontal 10px */
+            width: 100px; /* Ukuran gambar */
+            height: 100px; /* Ukuran gambar */
+        }
+    </style>
+    <title>ZottieChan</title>
+</head>
+<body>
+    <!-- Teks yang akan dianimasikan -->
+    <div class="welcome-text">Welcome To <span>Zottie<span>Chan!</div>
+    
+    <!-- Teks tambahan yang akan muncul setelah 1 detik -->
+    <div class="additional-text">Hello Perkenalkan Nama Saya ZottieChan! Dan Saya Adalah Seorang Developer Yang Mungkin Bisa Membantu Mengembangkan Ide Kamu😊</div>
+
+    <!-- Teks "Skill" -->
+    <div class="skill-text">Skill</div>
+    
+    <!-- Gambar-gambar skill -->
+    <div class="skill-images">
+        <img src="https://www.freepnglogos.com/uploads/javascript-png/javascript-vector-logo-yellow-png-transparent-javascript-vector-12.png" alt="JavaScript">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7qbRkHdoLYfLuPeU2SLSYJ1BMdqocgnDJu2kfvWIraPgzvgV1&s" alt="HTML">
+        <img src="https://cdn4.iconfinder.com/data/icons/logos-and-brands/512/181_Java_logo_logos-512.png" alt="Java">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFIGMYHknmm2rSUdx62xQTLCPRAoTWVEA4-xzuQGoOec54F2w&s" alt="PHP">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJ-ml9PNfkDRFpDa-dQNzazBKHV0HZFEAQt_xqqq4KIonZ0_A1&s" alt="CSS">
+    </div>
+
+    <!-- Script JavaScript untuk mengarahkan ke halaman lain setelah teks "Skill" hilang -->
+<script>
+    // Mengambil elemen "Skill" untuk mengawasi akhir animasi
+    var skillText = document.querySelector(".skill-text");
+
+    // Menambahkan event listener untuk mengawasi akhir animasi "Skill"
+    skillText.addEventListener("animationend", function () {
+        // Setelah animasi "Skill" selesai, tunggu 1 detik sebelum mengarahkan ke halaman berikutnya
+        setTimeout(function () {
+            // Arahkan ke halaman berikutnya (Anda dapat menggantinya dengan URL yang sesuai)
+            window.location.href = "halaman.html";
+        }, 2000); // Tunggu 1 detik sebelum mengarahkan ke halaman berikutnya
+    });
+</script>
+
+</body>
+</html>
